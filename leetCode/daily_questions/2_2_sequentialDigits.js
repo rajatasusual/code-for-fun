@@ -1,21 +1,26 @@
-class Solution {
-    sequentialDigits(low, high) {
-        const a = [];
+/**
+ * @param {number} low
+ * @param {number} high
+ * @return {number[]}
+ */
+var sequentialDigits = function(low, high) {
+    
+    let a = [];
 
-        for (let i = 1; i <= 9; ++i) {
-            let num = i;
-            let nextDigit = i + 1;
+    for (let i = 1; i <= 9; ++i) {
+        let num = i;
+        let nextDigit = i + 1;
 
-            while (num <= high && nextDigit <= 9) {
-                num = num * 10 + nextDigit;
-                if (low <= num && num <= high) {
-                    a.push(num);
-                }
-                ++nextDigit;
+        while (num <= high && nextDigit <= 9) {
+            num = num * 10 + nextDigit;
+            if (low <= num && num <= high) {
+                a.push(num);
             }
+            ++nextDigit;
         }
-
-        a.sort((a, b) => a - b);
-        return a;
     }
-}
+
+    a.sort((a, b) => a - b);
+    return a;
+
+};
